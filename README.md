@@ -11,6 +11,6 @@ Conversor simples de medida, utilizando algumas funcionalidades bem interessante
 ## Screenshots
 
 ![App Screenshot](https://github.com/AdilsonMJ/Metric-Conversions/blob/main/screenshots/image_2022-08-29_121545874.png)
-![App Screenshot](https://github.com/AdilsonMJ/Converso-de-medidas/blob/main/screenshots/Screenshot%202022-08-02%20162159.jpg)
+![App Screenshot](https://github.com/AdilsonMJ/Metric-Conversions/blob/main/screenshots/image_2022-08-29_121623203.png)
 
 
