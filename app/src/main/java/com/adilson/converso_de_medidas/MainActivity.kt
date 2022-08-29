@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import com.adilson.converso_de_medidas.databinding.ActivityMainBinding
 import com.adilson.models.CalculationStrategyHolder
 import com.adilson.models.Calculator
 import com.adilson.models.strategies.*
@@ -15,10 +16,7 @@ import java.lang.NumberFormatException
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var spConversion: Spinner
-    private lateinit var btnClear: Button
-    private lateinit var edtValue: EditText
-
+    private lateinit var binding: ActivityMainBinding
 
     val supportCalculationStrategies = arrayOf(
         CalculationStrategyHolder("Km to CM", KilometerToCentimetersStrategy()),
@@ -32,7 +30,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         var value = 0.0
         var position = 0
@@ -42,8 +41,6 @@ class MainActivity : AppCompatActivity() {
             position = it.getInt("POSITION")
         }
 
-
-        initUi()
         setUI(value = value, position = position)
         setActions()
 
@@ -55,19 +52,15 @@ class MainActivity : AppCompatActivity() {
 
 
         try{
-            outState.putDouble("VALUE", edtValue.text.toString().toDouble())
+            outState.putDouble("VALUE", binding.edtValue.text.toString().toDouble())
         }catch (e : NumberFormatException){
 
         }
-        outState.putInt("POSITION", spConversion.selectedItemPosition)
+        outState.putInt("POSITION", binding.spConversion.selectedItemPosition)
 
     }
 
-    private fun initUi() {
-        spConversion = findViewById(R.id.spConversion)
-        btnClear = findViewById(R.id.btnClean)
-        edtValue = findViewById(R.id.edtValue)
-    }
+
 
     private fun setActions() {
         val btnConverter: Button = findViewById(R.id.btnConverte)
@@ -76,9 +69,9 @@ class MainActivity : AppCompatActivity() {
 
             try{
 
-                val value = edtValue.text.toString().toDouble()
+                val value = binding.edtValue.text.toString().toDouble()
 
-                val selectedItemPosition = spConversion.selectedItemPosition
+                val selectedItemPosition = binding.spConversion.selectedItemPosition
 
 
 
@@ -97,8 +90,8 @@ class MainActivity : AppCompatActivity() {
                showResult(result, label)
 
             }catch (e: NumberFormatException){
-                edtValue.error = "Valor invalido!"
-                edtValue.requestFocus()
+                binding.edtValue.error = "Valor invalido!"
+                binding.edtValue.requestFocus()
             }
 
 
@@ -115,9 +108,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun clearFillds() {
 
-            edtValue.setText("0")
-            edtValue.error = ""
-            spConversion.setSelection(0)
+            binding.edtValue.setText("0")
+            binding.edtValue.error = ""
+            binding.spConversion.setSelection(0)
 
     }
 
@@ -131,12 +124,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUI(value: Double, position : Int) {
 
-        edtValue.setText(value.toString())
+        binding.edtValue.setText(value.toString())
 
         val spAdapter =  ArrayAdapter(this, R.layout.res_spinner_item, getSpinnerData())
         spAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spConversion.adapter = spAdapter
-        spConversion.setSelection(position)
+        binding.spConversion.adapter = spAdapter
+        binding.spConversion.setSelection(position)
     }
 
     private fun getSpinnerData(): MutableList<String> {

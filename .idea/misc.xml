@@ -17,4 +17,9 @@
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
+  <component name="com.itcodebox.notebooks.projectservice.ProjectUIState">
+    <option name="selectedNotebookId" value="3" />
+    <option name="selectedChapterId" value="6" />
+    <option name="selectedNoteId" value="7" />
+  </component>
 </project>
