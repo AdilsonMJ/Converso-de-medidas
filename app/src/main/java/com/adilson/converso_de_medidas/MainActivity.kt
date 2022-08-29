@@ -21,12 +21,12 @@ class MainActivity : AppCompatActivity() {
 
 
     val supportCalculationStrategies = arrayOf(
-        CalculationStrategyHolder("Km para CM", KilometerToCentimetersStrategy()),
-        CalculationStrategyHolder("Km para M", KilometerToMeterStrategy()),
-        CalculationStrategyHolder("M para CM", MeterToCentimetersStrategy()),
-        CalculationStrategyHolder("M para Km", MeterToKilimeterStrategy()),
-        CalculationStrategyHolder("CM para Km", CentimetersToKilometerStrategy()),
-        CalculationStrategyHolder("CM para M", CentimetersToMetersStrategy())
+        CalculationStrategyHolder("Km to CM", KilometerToCentimetersStrategy()),
+        CalculationStrategyHolder("Km to M", KilometerToMeterStrategy()),
+        CalculationStrategyHolder("M to CM", MeterToCentimetersStrategy()),
+        CalculationStrategyHolder("M to Km", MeterToKilimeterStrategy()),
+        CalculationStrategyHolder("CM to Km", CentimetersToKilometerStrategy()),
+        CalculationStrategyHolder("CM to M", CentimetersToMetersStrategy())
     )
 
 

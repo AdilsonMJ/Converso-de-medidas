@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Converso_de_medidas</string>
-    <string name="limpar">Limpar</string>
-    <string name="converter">Converter</string>
-    <string name="insira_o_valor_a_ser_convertido">Insira o valor a ser convertido</string>
-    <string name="voltar">Voltar</string>
+    <string name="app_name">Metric-Conversions</string>
+    <string name="limpar">Clear</string>
+    <string name="converter">Convert</string>
+    <string name="insira_o_valor_a_ser_convertido">Fill a value to convert</string>
+    <string name="voltar">Back</string>
 </resources>

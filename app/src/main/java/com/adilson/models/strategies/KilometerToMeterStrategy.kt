@@ -8,6 +8,6 @@ class KilometerToMeterStrategy : CalculationStrategy {
 
     }
 
-    override fun getResultLabel(isPlural: Boolean): String = if(isPlural) "Metros" else "Metro"
+    override fun getResultLabel(isPlural: Boolean): String = if(isPlural) "Meters" else "Meter"
 
 }

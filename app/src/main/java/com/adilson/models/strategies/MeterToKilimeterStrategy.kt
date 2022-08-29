@@ -5,5 +5,5 @@ class MeterToKilimeterStrategy : CalculationStrategy {
         return value / 1_000
     }
 
-    override fun getResultLabel(isPlural: Boolean): String = if (isPlural) "quilometros" else "quilometro"
+    override fun getResultLabel(isPlural: Boolean): String = if (isPlural) "kilometers" else "kilometer"
 }

@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="@string/converter"
         android:textColor="@color/black"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/mandarin"
         />
 
     <Button
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:text="@string/limpar"
         android:textColor="@color/black"
-        android:backgroundTint="@color/light_grey"/>
+        android:backgroundTint="@color/spanish_gray"/>
 
 
 
