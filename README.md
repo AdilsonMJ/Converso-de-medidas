@@ -1,6 +1,12 @@
 # Converso de Medidas
 
-Conversor simples de medida, utilizando algumas funcionalidades bem interessantes. 
+Basic metric conversions. 
+  KM  > M /
+  KM  > CM /
+  M   > KM /
+  M   > CM /
+  CM  > KM /
+  CM  > M /
 
 
 ## Tech Stack
