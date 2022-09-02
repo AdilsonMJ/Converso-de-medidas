@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="Theme.AppSplash" parent="Theme.SplashScreen">
+
+        <item name="windowSplashScreenBackground">@color/BLACK.OLIVE</item>
+        <item name="windowSplashScreenAnimatedIcon"> @drawable/logo_fundo_branco </item>
+        <item name="postSplashScreenTheme">@style/Theme.Converso_de_medidas</item>
+
+    </style>
+    
+</resources>

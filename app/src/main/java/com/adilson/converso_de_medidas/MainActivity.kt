@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.adilson.converso_de_medidas.databinding.ActivityMainBinding
 import com.adilson.models.CalculationStrategyHolder
 import com.adilson.models.Calculator
@@ -30,13 +31,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         var value = 0.0
         var position = 0
 
-        savedInstanceState?.let{
+        savedInstanceState?.let {
             value = it.getDouble("VALUE")
             position = it.getInt("POSITION")
         }
@@ -51,9 +55,9 @@ class MainActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState, outPersistentState)
 
 
-        try{
+        try {
             outState.putDouble("VALUE", binding.edtValue.text.toString().toDouble())
-        }catch (e : NumberFormatException){
+        } catch (e: NumberFormatException) {
 
         }
         outState.putInt("POSITION", binding.spConversion.selectedItemPosition)
@@ -61,23 +65,21 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
     private fun setActions() {
         val btnConverter: Button = findViewById(R.id.btnConverte)
 
-        btnConverter.setOnClickListener{
+        btnConverter.setOnClickListener {
 
-            try{
+            try {
 
                 val value = binding.edtValue.text.toString().toDouble()
 
                 val selectedItemPosition = binding.spConversion.selectedItemPosition
 
 
-
                 val calculationStrategy = supportCalculationStrategies[
-                            selectedItemPosition]
-                        .calculationStrategy
+                        selectedItemPosition]
+                    .calculationStrategy
 
                 Calculator.setCalculationStrategy(
                     calculationStrategy
@@ -87,13 +89,12 @@ class MainActivity : AppCompatActivity() {
                 val label = calculationStrategy.getResultLabel(result != 1.toDouble())
 
 
-               showResult(result, label)
+                showResult(result, label)
 
-            }catch (e: NumberFormatException){
+            } catch (e: NumberFormatException) {
                 binding.edtValue.error = "Valor invalido!"
                 binding.edtValue.requestFocus()
             }
-
 
 
         }
@@ -108,9 +109,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun clearFillds() {
 
-            binding.edtValue.setText("0")
-            binding.edtValue.error = ""
-            binding.spConversion.setSelection(0)
+        binding.edtValue.setText("0")
+        binding.edtValue.error = ""
+        binding.spConversion.setSelection(0)
 
     }
 
@@ -122,11 +123,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun setUI(value: Double, position : Int) {
+    private fun setUI(value: Double, position: Int) {
 
         binding.edtValue.setText(value.toString())
 
-        val spAdapter =  ArrayAdapter(this, R.layout.res_spinner_item, getSpinnerData())
+        val spAdapter = ArrayAdapter(this, R.layout.res_spinner_item, getSpinnerData())
         spAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spConversion.adapter = spAdapter
         binding.spConversion.setSelection(position)
